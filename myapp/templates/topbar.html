@@ -1,0 +1,18 @@
+    <div class="topbar">
+        <div class="d-flex align-items-center gap-2">
+            <strong>Kerala | India </strong>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <form method="get" action="{% url 'doctor_list' %}">
+                <div class="d-flex" style="max-width: 320px;">
+                    <input type="text" name="t_search" class="form-control" placeholder="  search....." value="{{ t_search }}">
+
+                    <button type="submit" class="btn btn-info ms-2 text-white">Search</button>
+            
+                </div>
+            </form>
+
+            <a href="{% url 'logout' %}" class="text-warning text-decoration-none fw-bold">Logout</a>
+        </div>
+    </div>

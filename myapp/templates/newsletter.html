@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container mt-4">
+<h2 class="mb-4">Newsletter Subscribers</h2>
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% if subscribers %}
+        {% for sub in subscribers %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{sub.email}}</td>
+            <td>{{sub.subscribed_at|date:"d-m-Y h:i A"}}</td>
+        </tr>
+
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="7" class="text text-center text-danger">No subscribers found.</td>
+        </tr>
+    {% endif %}
+        
+    </tbody>
+
+</table>
+
+<br>
+
+    <div class="text-center">
+        <a href="{% url 'export_newsletter' %}" class="btn btn-primary">Export</a>
+    </div>
+
+
+</div>
+
+{% endblock %}

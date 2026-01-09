@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container mt-4">
+<h2 class="mb-4">Contact Messages</h2>
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for msg in message %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{msg.name}}</td>
+            <td>{{msg.email}}</td>
+            <td>{{msg.phone}}</td>
+            <td>{{msg.subject}}</td>
+            <td>{{msg.message}}</td>
+            <td>{{msg.created_at|date:"d-m-Y h:i A"}}</td>
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="7" class="text text-center text-danger">No messages found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+    <br>
+    <div class="text-center">
+        <a href="{% url 'export_contact' %}" class="btn btn-primary">Export</a>
+    </div>
+
+</div>
+
+{% endblock %}

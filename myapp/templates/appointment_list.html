@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+<h2 class="mb-4">Appoinments</h2>
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Specialization</th>
+            <th>Doctor</th>
+            <th>Message</th>
+            <th>Date</th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for app in appointment %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{app.name}}</td>
+            <td>{{app.email}}</td>
+            <td>{{app.phone}}</td>
+            <td>{{app.doctor.specialization}}</td>
+            <td>{{app.doctor}}</td>
+            <td>{{app.message}}</td>
+            <td>{{app.created_at|date:"d-m-Y h:i A"}}</td>
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="7" class="text text-center text-danger">No messages found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+
+</div>
+
+{% endblock %}

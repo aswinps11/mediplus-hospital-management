@@ -1,0 +1,92 @@
+{% load static %}
+<!-- Footer Area -->
+		<footer id="footer" class="footer ">
+			<!-- Footer Top -->
+			<div class="footer-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer">
+								<h2>About Us</h2>
+								<p>We are committed to offering reliable, high-quality services with care, comfort, and professionalism. Our team works every day to ensure you receive the best experience possible.</p>
+								<!-- Social -->
+								<ul class="social">
+									<li><a href="https://www.facebook.com/"><i class="icofont-facebook"></i></a></li>
+									<li><a href="https://www.google.com/"><i class="icofont-google-plus"></i></a></li>
+									<li><a href="twitter.com"><i class="icofont-twitter"></i></a></li>
+									<li><a href="https://vimeo.com/"><i class="icofont-vimeo"></i></a></li>
+									<li><a href="https://in.pinterest.com/"><i class="icofont-pinterest"></i></a></li>
+								</ul>
+								<!-- End Social -->
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer f-link">
+								<h2>Quick Links</h2>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-12">
+										<ul>
+											<li><a href="{% url 'index' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+											<li><a href="{% url 'about' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>	
+										</ul>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12">
+										<ul>
+											<li><a href="{% url 'services' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
+											<li><a href="{% url 'contact' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer">
+								<h2>Open Hours</h2>
+								<p>We are available throughout the week to provide continuous medical support.</p>
+								<ul class="time-sidual">
+									<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+									<li class="day">Saturday <span>9.00-18.30</span></li>
+									<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer">
+								<h2>Newsletter</h2>
+								<p>subscribe to our newsletter to get all our news in your inbox..</p>
+								<br><br>
+								<form action="{% url 'newsletter_subscribe' %}" method="POST" class="newsletter-inner">
+									{% csrf_token %}
+									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
+										onblur="this.placeholder = 'Your email address'" required="" type="email">
+									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
+								</form>
+								{% if messages %}
+								<div class="mt-2">
+									{% for p in messages %}
+										<p class="text-{{p.tags}}">{{p}}</p>
+									{% endfor %}
+								</div>
+								{% endif %}
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ End Footer Top -->
+			<!-- Copyright -->
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-12">
+							<div class="copyright-content">
+								<p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ End Copyright -->
+		</footer>
+		<!--/ End Footer Area -->
